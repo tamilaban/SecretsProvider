@@ -1,9 +1,14 @@
-var awsAccessKey = _get("AWSAccessKey");
-var awsSecretKey = _get("AWSSecretKey");
-var region = _get("AWSRegion");
-AWSSecretsProvider( new ConfigProviderOptions
+private static ConnectionStringSettings _getConnectionStringFromConfigFile(string configKey) 
 {
-AWSAcessKey = awsAccessKey ,
-awsSecretKey  = awsSecretKey ,
-Region = region
+ ConnectionStringSettings requestedConfig =null; 
+try
+{
+	requestedConfig = ConfigurationManager.ConnectionStrings[configKey] ?? requestedConfig;
+
+}
+catch(ConfigurationErrorsException)
+{
+
+}
+return requestedConfig;
 }
