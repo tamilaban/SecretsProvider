@@ -1,14 +1,1 @@
-private static ConnectionStringSettings _getConnectionStringFromConfigFile(string configKey) 
-{
- ConnectionStringSettings requestedConfig =null; 
-try
-{
-	requestedConfig = ConfigurationManager.ConnectionStrings[configKey] ?? requestedConfig;
-
-}
-catch(ConfigurationErrorsException)
-{
-
-}
-return requestedConfig;
-}
+private static ValueStore Values {get;} = new ValueStore();
